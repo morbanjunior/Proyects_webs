@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/myApp.js"></script>
+</head>
+<body>
+    <div data-ng-app="myApp" data-ng-controller="employeeCtrl" class="container">
+
+        <div id="clear">
+            Employee ID:<input type="text" name="employee.EmployeeID" data-ng-model="employee.EmployeeID" value="{{employee.EmployeeID}}" /><br />
+            Employee Name:<input type="text" name="employee.EmployeeName" data-ng-model="employee.EmployeeName" value="{{employee.EmployeeName}}" /><br />
+            Employee Address:<input type="text" name="employee.EmployeeAddress" data-ng-model="employee.EmployeeAddress" value="{{employee.EmployeeAddress}}" /><br />
+            Employee Salary:<input type="text" name="employee.EmployeeSalary" data-ng-model="employee.EmployeeSalary" value="{{employee.EmployeeSalary}}" /><br />
+            <input type="button" value="Save" name="btnSave" data-ng-click="savedata(employee)" />
+            <input type="button" value="Update" name="btnUpdate" data-ng-click="updateData(employee)" />
+
+        </div>
+
+        <table class="" style="border:1px solid grey">
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Address</th>
+                <th>Employee Salary</th>
+                <th>Select Employee</th>
+
+            </tr>
+            <tr data-ng-repeat="emp in employees">
+                <td>{{emp.EmployeeID}}</td>
+                <td>{{emp.EmployeeName}}</td>
+                <td>{{emp.EmployeeAddress}}</td>
+                <td>{{emp.EmployeeSalary}}</td>
+                <td>
+                    <a href="#" data-ng-click="selectEmpleployee(emp.EmployeeID)">Select</a>
+                    <a href="#" data-ng-click="deleteEmployee(emp.EmployeeID)">Delect</a>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
